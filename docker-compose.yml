@@ -1,4 +1,4 @@
-name: in-orbit-server
+name: orb-goals-server
 
 services:
   pg:

@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "setup": "npm i --force && npx drizzle-kit migrate && docker compose up -d",
     "dev": "tsx --env-file .env --watch ./src/index.ts",
     "seed": "tsx --env-file .env ./src/db/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
