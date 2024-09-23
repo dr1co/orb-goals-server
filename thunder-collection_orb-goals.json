@@ -1,0 +1,69 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "orb-goals",
+    "collectionId": "672ad2e5-2c2e-4659-bb1b-cb144e5e52eb",
+    "dateExported": "2024-09-23T21:39:54.648Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "c5c0f71d-34f6-452b-aa4e-cef0b260187e",
+            "colId": "672ad2e5-2c2e-4659-bb1b-cb144e5e52eb",
+            "containerId": "",
+            "name": "GET summary",
+            "url": "http://localhost:3333/summary",
+            "method": "GET",
+            "sortNum": 10000,
+            "created": "2024-09-23T21:14:39.475Z",
+            "modified": "2024-09-23T21:14:39.475Z",
+            "headers": []
+        },
+        {
+            "_id": "bb5b356a-7cbd-4cbc-9e5c-ddf46fc2f3dc",
+            "colId": "672ad2e5-2c2e-4659-bb1b-cb144e5e52eb",
+            "containerId": "",
+            "name": "POST completion",
+            "url": "http://localhost:3333/completions",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2024-09-23T21:14:44.755Z",
+            "modified": "2024-09-23T21:14:44.755Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"goalId\": \"ilwx179emc0qd545xf5f062m\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "405ed1f4-50e7-48df-a92a-00ae2b4d553b",
+            "colId": "672ad2e5-2c2e-4659-bb1b-cb144e5e52eb",
+            "containerId": "",
+            "name": "POST goal",
+            "url": "http://localhost:3333/goals",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2024-09-23T21:14:50.092Z",
+            "modified": "2024-09-23T21:14:50.092Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"title\": \"Defecar 3x ao dia\",\n  \"desiredWeeklyFrequency\": 7\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "3dedcac2-f0d2-4f80-aa54-5bf3db5d0bc2",
+            "colId": "672ad2e5-2c2e-4659-bb1b-cb144e5e52eb",
+            "containerId": "",
+            "name": "GET pending goals",
+            "url": "http://localhost:3333/pending-goals",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-09-23T21:14:55.220Z",
+            "modified": "2024-09-23T21:14:55.220Z",
+            "headers": []
+        }
+    ],
+    "ref": "Vy8f_jw_4dQCPp3D0qbz7u6MFtyPKkeDqMuV0ybax92lKBWmDPKN2rE2TrKA9X0w-a6A-q9Ih6vm_SWIbQ-sww"
+}
