@@ -5,8 +5,8 @@ import { getWeekSummary } from "../functions/getWeekSummary";
 
 export const getWeekSummaryRoute: FastifyPluginAsyncZod = async (server) => {
   server.get("/summary", async () => {
-    const { summary } = await getWeekSummary();
+    const { result } = await getWeekSummary();
 
-    return summary;
+    return result;
   });
 };
