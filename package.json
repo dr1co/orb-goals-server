@@ -5,7 +5,7 @@
   "scripts": {
     "setup": "npm i --force && npx drizzle-kit migrate",
     "build": "npx tsc",
-    "start": "node --watch ./dist/src/index.js",
+    "start": "node ./dist/src/index.js",
     "dev": "tsx --watch ./src/index.ts",
     "seed": "tsx --env-file .env ./src/db/seed.ts",
     "test": "echo \"Error: no test specified\" && exit 1"

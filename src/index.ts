@@ -8,6 +8,7 @@ import { createGoalCompletionRoute } from "./routes/createGoalCompletion";
 import { getWeekPendingGoalsRoute } from "./routes/getWeekPendingGoals";
 import { getWeekSummaryRoute } from "./routes/getWeekSummary";
 
+const PORT = Number(env.PORT);
 const server = fastify();
 
 server.register(fastifyCors, {
@@ -21,8 +22,8 @@ server.register(getWeekSummaryRoute);
 
 server
   .listen({
-    port: Number(env.PORT),
+    port: PORT,
   })
   .then(() => {
-    console.log(`HTTP Server running on port ${Number(env.PORT)}`);
+    console.log(`HTTP Server running on port ${PORT}`);
   });
