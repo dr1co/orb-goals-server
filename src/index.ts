@@ -2,6 +2,7 @@ import fastify from "fastify";
 import { fastifyCors } from "@fastify/cors";
 
 import { env } from "./env/env";
+import { createUserRoute } from "./routes/createUser";
 import { createGoalRoute } from "./routes/createGoal";
 import { createGoalCompletionRoute } from "./routes/createGoalCompletion";
 import { getWeekPendingGoalsRoute } from "./routes/getWeekPendingGoals";
@@ -14,6 +15,7 @@ server.register(fastifyCors, {
   origin: "*",
 });
 
+server.register(createUserRoute);
 server.register(createGoalRoute);
 server.register(createGoalCompletionRoute);
 server.register(getWeekPendingGoalsRoute);
