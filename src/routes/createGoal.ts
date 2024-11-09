@@ -4,12 +4,12 @@ import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
 import { createGoal } from "../functions/createGoal";
 
 export const createGoalRoute: FastifyPluginAsyncZod = async (server) => {
-  server.post("/goals", async (req) => {
+  server.post("/goals", async (req, res) => {
     const { authorization } = req.headers;
     const token = authorization?.replace("Bearer ","");
 
     if (!token) {
-      return;
+      return res.status(404).send({ message: "Token not found" });
     }
 
     const CreateRegisterSchema = z.object({

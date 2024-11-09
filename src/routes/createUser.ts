@@ -1,5 +1,6 @@
 import z from "zod";
 import type { FastifyPluginAsyncZod } from "fastify-type-provider-zod";
+import bcrypt from "bcrypt";
 
 import { createUser } from "../functions/createUser";
 
@@ -21,10 +22,12 @@ export const createUserRoute: FastifyPluginAsyncZod = async (server) => {
 
     const { name, email, password } = CreateRegisterSchema.parse(req.body);
 
+    const encrypted = await bcrypt.hash(password, 10);
+
     const user = await createUser({
       name,
       email,
-      password,
+      password: encrypted,
     });
 
     return user;
