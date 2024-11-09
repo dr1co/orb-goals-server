@@ -5,14 +5,16 @@ import { db, client } from ".";
 import { goalCompletions, goals, users } from "./schema";
 
 async function seed() {
-  await db.delete(users);
   await db.delete(goalCompletions);
   await db.delete(goals);
+  await db.delete(users);
+
+  const encrypted = await bcrypt.hash("123456", 10);
 
   const user = await db.insert(users).values({
     name: "Teste",
     email: "teste@email.com",
-    password: bcrypt.hash("123456", 10),
+    password: encrypted,
   }).returning();
 
   const result = await db

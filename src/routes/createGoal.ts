@@ -6,10 +6,10 @@ import { createGoal } from "../functions/createGoal";
 export const createGoalRoute: FastifyPluginAsyncZod = async (server) => {
   server.post("/goals", async (req, res) => {
     const { authorization } = req.headers;
-    const token = authorization?.replace("Bearer ","");
+    const token = authorization?.replace("Bearer ", "");
 
     if (!token) {
-      return res.status(404).send({ message: "Token not found" });
+      return res.status(401).send({ message: "Unauthorized to do this action!" });
     }
 
     const CreateRegisterSchema = z.object({

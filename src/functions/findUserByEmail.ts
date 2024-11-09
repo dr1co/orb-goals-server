@@ -2,11 +2,11 @@ import { eq } from "drizzle-orm";
 import { db } from "../db";
 import { users } from "../db/schema";
 
-interface LoginInterface {
+interface LoginRequest {
   email: string;
 }
 
-export const findUserByEmail = async (request: LoginInterface) => {
+export const findUserByEmail = async (request: LoginRequest) => {
   const result = await db.select({
     id: users.id,
     name: users.name,

@@ -6,7 +6,7 @@ import { createGoalCompletion } from "../functions/createGoalCompletion";
 export const createGoalCompletionRoute: FastifyPluginAsyncZod = async (
   server
 ) => {
-  server.post("/completions", async (req) => {
+  server.post("/completions", async (req, res) => {
     const CreateCompletionSchema = z.object({
       goalId: z.string().cuid2(),
     });

@@ -4,13 +4,6 @@ import bcrypt from "bcrypt";
 
 import { createUser } from "../functions/createUser";
 
-interface DataInterface {
-  name: string;
-  email: string;
-  password: string;
-  confirmPassword: string;
-}
-
 export const createUserRoute: FastifyPluginAsyncZod = async (server) => {
   server.post("/users/register", async (req) => {
     const CreateRegisterSchema = z.object({

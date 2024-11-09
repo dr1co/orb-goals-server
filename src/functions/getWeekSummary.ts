@@ -4,7 +4,11 @@ import { lte, count, and, gte, eq, sql, desc } from "drizzle-orm";
 import { db } from "../db";
 import { goals, goalCompletions } from "../db/schema";
 
-export async function getWeekSummary() {
+interface SummaryRequest {
+  userId: string;
+}
+
+export async function getWeekSummary(request: SummaryRequest) {
   const firstDayOfWeek = dayjs().startOf("week").toDate();
   const lastDayOfWeek = dayjs().endOf("week").toDate();
 
@@ -26,7 +30,7 @@ export async function getWeekSummary() {
         createdAt: goals.createdAt,
       })
       .from(goals)
-      .where(lte(goals.createdAt, lastDayOfWeek))
+      .where(and(lte(goals.createdAt, lastDayOfWeek), eq(goals.userId, request.userId)))
   );
 
   const goalsCompletedInWeek = db.$with("goals_completed_in_week").as(
