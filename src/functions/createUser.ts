@@ -16,7 +16,5 @@ export async function createUser(request: CreateUserRequest) {
 
   const user = result[0];
 
-  return {
-    user,
-  };
+  return user;
 }

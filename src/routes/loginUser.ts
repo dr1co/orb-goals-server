@@ -17,8 +17,6 @@ export const loginUserRoute: FastifyPluginAsyncZod = async (server) => {
       email,
     });
 
-    console.log(user);
-
     const passwordMatch = await bcrypt.compare(password, user?.password);
 
     if (!passwordMatch || !user) {
