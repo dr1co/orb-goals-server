@@ -30,7 +30,12 @@ export async function getWeekSummary(request: SummaryRequest) {
         createdAt: goals.createdAt,
       })
       .from(goals)
-      .where(and(lte(goals.createdAt, lastDayOfWeek), eq(goals.userId, request.userId)))
+      .where(
+        and(
+          lte(goals.createdAt, lastDayOfWeek),
+          eq(goals.userId, request.userId)
+        )
+      )
   );
 
   const goalsCompletedInWeek = db.$with("goals_completed_in_week").as(
@@ -48,7 +53,8 @@ export async function getWeekSummary(request: SummaryRequest) {
       .where(
         and(
           gte(goalCompletions.createdAt, firstDayOfWeek),
-          lte(goalCompletions.createdAt, lastDayOfWeek)
+          lte(goalCompletions.createdAt, lastDayOfWeek),
+          eq(goals.userId, request.userId)
         )
       )
       .orderBy(desc(goalCompletions.createdAt))

@@ -9,12 +9,16 @@ export const getWeekSummaryRoute: FastifyPluginAsyncZod = async (server) => {
     const token = authorization?.replace("Bearer ", "");
 
     if (!token) {
-      return res.status(401).send({ message: "Unauthorized to do this action!" });
+      return res
+        .status(401)
+        .send({ message: "Unauthorized to do this action!" });
     }
 
     const { result } = await getWeekSummary({
       userId: token,
     });
+
+    console.log(result);
 
     return result;
   });
